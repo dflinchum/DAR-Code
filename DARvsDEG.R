@@ -24,7 +24,7 @@ plotDistToTSS(JN_DEpeaksAnno,
 
 JN_DEpeaksAnno<-as.data.frame(JN_DEpeaksAnno) #as data frame to manipulate easier
 JN_DEpeaksAnno <- JN_DEpeaksAnno %>%  #rename columns! 
-  rename("FC" = "V5") #I SWEAR TO GOD THIS IS DIFFERENT EVERY TIME ON HOW TO CHANGE THE NAME
+  rename("FC" = "V5") 
 
 ##JN_DEpeaksAnno files is the 14072 JN DAR Peaks (not genes!). want to filter by FC HERE before merging any gene stuff
 JN_DEpeaks_DAR <- JN_DEpeaksAnno %>% filter(FC > 1 | FC < -1)  #filter by abs value; works great, nothing between -.99 to .99!  
@@ -102,8 +102,6 @@ BER_DAR_upreg_surv<- BER_DAR_upreg_surv[,c(1,2,9,18)]
 
 BER_DAR_gene_list <- list("SAMD11, LPL, ARC, BDKRB2, GFRA2, SYT2, ZMAT3, FGF17, ITPR1, RAI2, OTOGL, JAK1, SRGAP3") #these are open DARs w/sig survival and upregulated by EWSR1-WT1 
 
-###DOOOOOOOOOOO THIS ABOVE AND SEE WHERE WE LOSE THE FOXA2??????
-##its p value? is shit.....
 
 ##get DAR upreg/downreg groups
 JNBER_upreg <- merge(JN_DAR_upreg_omitNA, BER_DAR_upreg_omitNA, by="SYMBOL")
